@@ -1,0 +1,15 @@
+@import "~@angular-mdc/theme/material";
+
+.my-masonry-image-list {
+  @include mdc-image-list-masonry-columns(5, 20px);
+   padding-top: 25px;
+   padding-left: 100px;
+   padding-right: 100px;
+}
+
+.image-list-item-container {
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #DDDDDD;
+}
