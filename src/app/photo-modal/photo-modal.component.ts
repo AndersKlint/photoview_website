@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-photo-modal',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-modal.component.scss']
 })
 export class PhotoModalComponent implements OnInit {
-
-  constructor() { }
+  image: string;
+  constructor(
+    private dialogRef: MatDialogRef<FileNameDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) private data
+  ) { }
 
   ngOnInit() {
+    this.image = this.data.image + '.raw';
   }
 
 }
