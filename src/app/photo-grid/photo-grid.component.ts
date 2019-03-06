@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.scss']
 })
+
+// Child routing tutorial (for modal): https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177
 export class PhotoGridComponent implements OnInit, OnDestroy {
   images: string[] = [];
   photoDialogRef: MatDialogRef<PhotoModalComponent>;
