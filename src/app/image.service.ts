@@ -8,32 +8,19 @@ import { Observable } from "rxjs";
 export class ImageService {
 
   filenames: string[] = [];
+  thumbnail_extension: string = '.small.jpg';
+  big_extension: string = '.big.jpg';
 
-  constructor(private http: HttpClient) {
-    this.getFilenames().subscribe(res => {
-          this.filenames = res;
-          console.log(res);
-        },
-        console.error
-      );
-      console.log(this.filenames);
+  constructor(private http: HttpClient) {  }
 
+  getImage(filename: string, thumbnail = false): string {
+    var extension = this.big_extension;
+    if (thumbnail)
+      extension = this.thumbnail_extension;
+    return 'http://localhost:5000/images/' + filename + extension;
   }
 
-  getThumbnails(): string[] {
-    var thumbnails: string[] = [];
-    for (var _i = 0; _i < 115; _i++) {
-      thumbnails.push('http://localhost:5000/images/small/' + this.filenames[_i] + '.jpg');
-      console.log(this.filenames[_i]);
-      }
-    return thumbnails;
-  }
-
-  getBigImage(pid: string): string {
-    return 'http://localhost:5000/images/big/' + pid + '.jpg';
-  }
-
-  private getFilenames(): Observable<any> {
+  getFilenames(): Observable<any> {
       return this.http.get('http://localhost:5000/images/filenames.json');
   }
 

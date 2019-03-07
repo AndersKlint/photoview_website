@@ -8,7 +8,7 @@ import { ImageService } from '../image.service';
   styleUrls: ['./photo-modal.component.scss']
 })
 export class PhotoModalComponent implements OnInit {
-  image: string;
+  imageName: string;
   constructor(
     private imageService: ImageService,
     private dialogRef: MatDialogRef<PhotoModalComponent>,
@@ -16,7 +16,7 @@ export class PhotoModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.image = this.data.image + '.raw';
+    this.imageName = this.data.imageName;
   }
 
 }

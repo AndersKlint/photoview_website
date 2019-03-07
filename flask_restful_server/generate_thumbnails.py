@@ -13,8 +13,8 @@ def make_thumbnails(image_files, save_directory, thumbnail_size, name_modifier):
         img = Image.open(filepath)
         print('\nREADING FILE: ' + str(filename))
         img.thumbnail(thumbnail_size)
-        print('SAVING TO: ' + str(save_directory + filename + name_modifier) + ".thumbnail")
-        img.save(str(save_directory + filename + name_modifier) + ".thumbnail", "JPEG")
+        print('SAVING TO: ' + str(save_directory + filename + name_modifier) + ".jpg")
+        img.save(str(save_directory + filename + name_modifier) + ".jpg", "JPEG")
 
 def read_files(directory):
     files = []

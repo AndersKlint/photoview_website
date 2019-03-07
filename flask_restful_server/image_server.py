@@ -14,25 +14,21 @@ app = Flask(__name__)
 CORS(app)
 
 
-image_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/big'
-thumbnail_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/small'
-images = {}
-thumbnails = {}
-files = []
-filenames = []
+image_directory = '/media/anders/Media/Pictures/Post processed/'
+small_thumbnail_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/small/'
+big_thumbnail_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/big/'
 
-@app.route('/images/small/<string:filename>.jpg')
-def get_thumbnail(image_name):
+thumbnails = {} #thumbnails saved to memory as they are small and need to be accessed often
+
+@app.route('/images/<string:image_name>')
+def get_image(image_name):
     image_binary = thumbnails[image_name]
     return make_image_response(image_binary, image_name)
 
-@app.route('/images/big/<int:pid>.jpg')
-def get_image(pid):
-    image_binary = images[pid]
-    return make_image_response(image_binary, pid)
-
+## Return the filenames in the default original image directory
 @app.route('/images/filenames.json')
 def get_filenames():
+    filenames = read_filenames(image_directory)
     return jsonify(filenames)
 
 def make_image_response(image_binary, pid):
@@ -46,24 +42,22 @@ def make_image_response(image_binary, pid):
         'Content-Disposition', 'attachment', filename='%s.jpg' % pid)
     return response
 
-def read_images(directory):
+def read_images(directory_list):
     img_dict = {}
-    for filepath in files:
-        filename = os.path.basename(filepath)
-        print('READING FILE: ' + str(filename))
-        img_dict[filename] = open(filepath, "rb").read()
+    for directory in directory_list:
+        filenames = read_filenames(directory)
+        for filename in filenames:
+            print('READING FILE: ' + str(filename))
+            img_dict[filename] = open(directory + filename, "rb").read()
     return img_dict
 
-def read_files(directory):
+def read_filenames(directory):
     files = []
-    for ext in ('*.png', '*.jpg', '*.thumbnail'):
-        files.extend(glob(join(directory, ext)))
-    for filepath in files:
-        filenames.append(os.path.basename(filepath))
-    return files, filenames
+    for file in os.listdir(directory):
+        if file.endswith('.png') or file.endswith('.jpg'):
+            files.append(file)
+    return files
 
 if __name__ == '__main__':
-    files, filenames = read_files(image_directory)
-    images = read_images(image_directory)
-    thumbnails = read_images(thumbnail_directory)
-    app.run(debug=True)
+    thumbnails = read_images([small_thumbnail_directory, big_thumbnail_directory])
+    app.run(debug=False)

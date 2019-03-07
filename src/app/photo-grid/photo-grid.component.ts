@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 
 // Child routing tutorial (for modal): https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177
 export class PhotoGridComponent implements OnInit, OnDestroy {
-  images: string[] = [];
+  imageNames: string[] = [];
   photoDialogRef: MatDialogRef<PhotoModalComponent>;
   routeQueryParams$: Subscription;
 
@@ -26,18 +26,30 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.images = this.imageService.getThumbnails();
+    this.imageNames = this.getImageNames();
   }
 
   ngOnDestroy() {
     this.routeQueryParams$.unsubscribe();
   }
 
-  openPhotoModal(image) {
+  getImageNames(): string[] {
+    var imageNames: string[] = [];
+    this.imageService.getFilenames().subscribe(res => {
+          res.forEach(filename => {
+            imageNames.push(filename);
+          });
+        },
+        console.error
+      );
+    return imageNames;
+  }
+
+  openPhotoModal(imageName) {
     this.photoDialogRef = this.dialog.open(PhotoModalComponent, {
       maxHeight: '95vh',
       data: {
-        image: image
+        imageName: imageName
       }
     });
 
