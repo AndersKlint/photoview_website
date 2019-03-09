@@ -1,5 +1,10 @@
 
 img {
-    max-height: 90vh;
-    max-width: 90vw;
+    max-height: 75vh;
+    max-width: 75vw;
+  }
+
+.span-fill-remaining-space {
+  display: inline-block;
+  width: 15px;
   }

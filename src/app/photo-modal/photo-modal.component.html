@@ -1,9 +1,10 @@
 <h1 mat-dialog-title>{{data.imageName}}</h1>
-<div mat-dialog-content>
-  <img src="{{this.imageService.getImage(imageName)}}">
-</div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="senddata">Close</button>
-  <button mat-button (click)="onLike()">Like</button>
-  <p> {{rating}} </p>
+<img src="{{this.imageService.getImage(imageName)}}">
+<div mat-dialog-actions align="end">
+<!--  <button mat-button [mat-dialog-close]="senddata">Close</button> -->
+  <button mat-icon-button color="warn" (click)="onLike()">
+    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+  </button>
+  <span class="span-fill-remaining-space"></span>
+  <button mat-stroked-button >{{rating}}</button>
 </div>

@@ -5,6 +5,7 @@ import { ImageService } from '../image.service';
 import { ActivatedRoute, Router }  from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-photo-grid',
   templateUrl: './photo-grid.component.html',
@@ -25,6 +26,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
       }
     });
   }
+
 
   ngOnInit() {
     this.imageService.getFilenames().subscribe(res => {
