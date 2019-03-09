@@ -13,7 +13,8 @@ import { Subscription } from 'rxjs';
 
 // Child routing tutorial (for modal): https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177
 export class PhotoGridComponent implements OnInit, OnDestroy {
-  imageNames: string[] = [];
+  image_info: {} = {};
+  sortedImages: string[] = [];
   photoDialogRef: MatDialogRef<PhotoModalComponent>;
   routeQueryParams$: Subscription;
 
@@ -26,23 +27,28 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.imageNames = this.getImageNames();
+    this.imageService.getFilenames().subscribe(res => {
+      this.image_info = res;
+      this.sortedImages = this.getKeysSortedByValue(this.image_info);
+    });
   }
 
   ngOnDestroy() {
     this.routeQueryParams$.unsubscribe();
   }
 
-  getImageNames(): string[] {
-    var imageNames: string[] = [];
-    this.imageService.getFilenames().subscribe(res => {
-          res.forEach(filename => {
-            imageNames.push(filename);
-          });
-        },
-        console.error
-      );
-    return imageNames;
+  getKeysSortedByValue(imageInfo: {}) {
+    var tupleList = Object.keys(imageInfo).map(function(key) {
+      return [key, imageInfo[key]]; // returns [[key, val], ...]
+    });
+    // Sort [[]] structure
+    tupleList.sort(function(first, second) {
+      return second[1] - first[1];
+    });
+    // make list of only first in [(first, second), ...]
+    var sortedKeys = tupleList.map(x => {return x[0]});
+    console.log(sortedKeys);
+    return sortedKeys;
   }
 
   openPhotoModal(imageName) {

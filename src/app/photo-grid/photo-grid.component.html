@@ -1,6 +1,6 @@
 <div class="photoview-background">
 <ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
-  <li class="mdc-image-list__item mat-elevation-z5" *ngFor="let imageName of imageNames" routerLinkActive="active">
+  <li class="mdc-image-list__item mat-elevation-z5" routerLinkActive="active" *ngFor="let imageName of sortedImages">
     <img class="mdc-image-list__image image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" routerLink="/photos" [queryParams]="{img: imageName}">
   </li>
 </ul>

@@ -1,1 +1,9 @@
-<img src="{{this.imageService.getImage(imageName)}}">
+<h1 mat-dialog-title>{{data.imageName}}</h1>
+<div mat-dialog-content>
+  <img src="{{this.imageService.getImage(imageName)}}">
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="senddata">Close</button>
+  <button mat-button (click)="onLike()">Like</button>
+  <p> {{rating}} </p>
+</div>
