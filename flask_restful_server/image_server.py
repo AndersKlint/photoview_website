@@ -2,8 +2,7 @@
 
 import os
 import io
-from glob import glob
-from os.path import join
+import json
 
 from flask import Flask, jsonify
 from flask_restful import Resource, Api, request
@@ -19,6 +18,7 @@ CORS(app)
 image_directory = '/media/anders/Media/Pictures/Post processed/'
 small_thumbnail_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/small/'
 big_thumbnail_directory = '/media/anders/Media/Pictures/Post processed/thumbnails/big/'
+image_data_filepath = 'image_info.json'
 
 thumbnails = {} # {name : binary_data}
                 # thumbnails are saved to memory as they are small and need to be accessed often.
@@ -58,7 +58,7 @@ def read_images(directory_list):
     return img_dict
 
 def read_image_info(directory):
-    image_info = { 'one' : 1, 'three' : 2, 'two' : 3} # TODO: change to load json
+    image_info = load_image_info()
     for filename in os.listdir(directory):
         if filename not in image_info.keys():
             if filename.endswith('.png') or filename.endswith('.jpg'):
@@ -72,6 +72,19 @@ def read_filenames(directory):
             filenames.append(filename)
     return filenames
 
+def save_image_data(image_info):
+    with open(image_data_filepath, 'w') as outfile:
+        json.dump(image_info, outfile)
+
+def load_image_info():
+    try:
+        with open(image_data_filepath) as file:
+            return json.load(file)
+    except IOError:
+        print ("File does not exist:", image_data_filepath)
+        return {}
+
+
 class ImageRating(Resource):
     def get(self, image_name):
         if image_name in image_info:
@@ -84,6 +97,7 @@ class ImageRating(Resource):
             image_info[image_name] += put_data
         elif put_data > 0:
             image_info[image_name] = put_data
+        save_image_data(image_info) #TODO: optimize save to file to happen less
         return image_info[image_name]
 
 api.add_resource(ImageRating, '/ratings/<string:image_name>')
