@@ -1,12 +1,29 @@
 
+/* center container*/
+.my-grid {
+  margin: 0 auto;
+}
 .my-masonry-image-list {
-   padding-top: 30px;
-   padding-left: 100px;
-   padding-right: 100px;
+  padding: 20px;
 }
 
+.grid-item {
+   margin-bottom: 15px;
+ }
+
+/*
+.grid-sizer, .grid-item {
+   width: 20%;
+   margin-bottom: 15px;
+ }
+
+.grid-item--width2 { width: 40%; }
+
+.gutter-sizer { width: 4%; }
+*/
+
 .photoview-background {
-  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0.8)), url("http://localhost:5000/images/24.png.raw");
+  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0.8)), url("http://localhost:5000/images/raw/bike-trip-sweden---italy-2018_42445058455_o.png"); //TODO: URL
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -14,7 +31,7 @@
 }
 
 .image-list-item-container {
-  border-radius: 15px; 
+  border-radius: 15px;
   border-style: solid;
   border-width: 2px;
 //  border-top-left-radius: 500px;

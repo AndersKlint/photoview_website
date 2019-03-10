@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-photo-grid',
   templateUrl: './photo-grid.component.html',
-  styleUrls: ['./photo-grid.component.scss', '../../../node_modules/ng-masonry-grid/ng-masonry-grid.css']
+  styleUrls: ['./photo-grid.component.scss']
 })
 
 // Child routing tutorial (for modal): https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177

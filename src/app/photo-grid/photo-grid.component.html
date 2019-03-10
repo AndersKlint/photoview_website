@@ -1,12 +1,15 @@
 <div class="photoview-background">
   <div class="my-masonry-image-list">
-    <ng-masonry-grid
-                  [masonryOptions]="{ transitionDuration: '0.8s', gutter: 15 }"
-                  [useAnimation]="true"
+    <ng-masonry-grid class="my-grid"
+                  [masonryOptions]="{ transitionDuration: '0s', gutter: 20, columnWidth: 120, itemSelector: '.grid-item',
+                                      percentPosition: true, horizontalOrder: true, fitWidth: true }"
+                  [useAnimation]="false"
                   [useImagesLoaded]="true"
-                  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
-      <ng-masonry-grid-item *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName} ">
-        <img class="image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image" />
+                  [scrollAnimationOptions]="{ animationEffect: 'effect-0', minDuration : 0.4, maxDuration : 0.7, viewportFactor : 0 }">
+      <ng-masonry-grid-item *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName}">
+         <div class="grid-item">
+        <img class="image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image">
+      </div>
       </ng-masonry-grid-item>
     </ng-masonry-grid>
   </div>
