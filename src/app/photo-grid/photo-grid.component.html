@@ -7,9 +7,9 @@
                   [useImagesLoaded]="true"
                   [scrollAnimationOptions]="{ animationEffect: 'effect-0', minDuration : 0.4, maxDuration : 0.7, viewportFactor : 0 }">
       <ng-masonry-grid-item *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName}">
-         <div class="grid-item">
-        <img class="image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image">
-      </div>
+        <div class="grid-item" >
+           <img class="mat-elevation-z5 image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image">
+        </div>
       </ng-masonry-grid-item>
     </ng-masonry-grid>
   </div>
