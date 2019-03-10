@@ -24,7 +24,10 @@
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "imagesloaded": "^4.1.4",
     "json-server": "^0.14.2",
+    "masonry-layout": "^4.2.2",
+    "ng-masonry-grid": "^1.3.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

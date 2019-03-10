@@ -1,7 +1,13 @@
 <div class="photoview-background">
-<ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
-  <li class="mdc-image-list__item mat-elevation-z5" routerLinkActive="active" *ngFor="let imageName of sortedImages">
-    <img class="mdc-image-list__image image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" routerLink="/photos" [queryParams]="{img: imageName}">
-  </li>
-</ul>
+  <div class="my-masonry-image-list">
+    <ng-masonry-grid
+                  [masonryOptions]="{ transitionDuration: '0.8s', gutter: 15 }"
+                  [useAnimation]="true"
+                  [useImagesLoaded]="true"
+                  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+      <ng-masonry-grid-item *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName} ">
+        <img class="image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image" />
+      </ng-masonry-grid-item>
+    </ng-masonry-grid>
+  </div>
 </div>

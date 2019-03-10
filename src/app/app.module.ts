@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 import { AboutViewComponent } from './about-view/about-view.component';
 import { PhotoModalComponent } from './photo-modal/photo-modal.component';
+import { NgMasonryGridModule } from 'ng-masonry-grid';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PhotoModalComponent } from './photo-modal/photo-modal.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MdcImageListModule
+    MdcImageListModule,
+    NgMasonryGridModule
   ],
   providers: [],
   bootstrap: [AppComponent],
