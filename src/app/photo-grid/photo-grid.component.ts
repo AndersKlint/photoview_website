@@ -5,6 +5,9 @@ import { ImageService } from '../image.service';
 import { ActivatedRoute, Router }  from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import $ from 'jquery';
+import jQueryBridget from 'jquery-bridget';
+import Masonry from 'masonry-layout';
 
 @Component({
   selector: 'app-photo-grid',
@@ -32,6 +35,18 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
     this.imageService.getFilenames().subscribe(res => {
       this.image_info = res;
       this.sortedImages = this.getKeysSortedByValue(this.image_info);
+    });
+
+    jQueryBridget( 'masonry', Masonry, $ );
+    jQueryBridget( 'imagesLoaded', ImagesLoaded, $ );
+
+    var $grid = $('.grid') {
+      // init Masonry after all images have loaded
+      $grid.masonry({
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
+      });
     });
   }
 

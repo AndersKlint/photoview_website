@@ -1,3 +1,13 @@
+
+  <div class="grid">
+    <div class="grid-sizer"></div>
+    <div class="grid-item" *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName}">
+      <img class="mat-elevation-z5 grid-item-image" src="{{this.imageService.getImage(imageName, true)}}" alt="No image">
+    </div>
+  </div>
+
+
+<!--
 <div class="photoview-background">
   <div class="my-masonry-image-list">
     <ng-masonry-grid class="my-grid"
@@ -14,3 +24,4 @@
     </ng-masonry-grid>
   </div>
 </div>
+-->

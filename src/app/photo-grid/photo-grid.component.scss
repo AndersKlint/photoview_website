@@ -1,46 +1,40 @@
+* { box-sizing: border-box; }
 
-/* center container*/
-.my-grid {
-  margin: 0 auto;
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+.grid {
+  background: #EEE;
+  max-width: 1200px;
 }
-.my-masonry-image-list {
-  padding: 20px;
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 20%;
 }
 
 .grid-item {
-   margin-bottom: 15px;
- }
-
-/*
-.grid-sizer, .grid-item {
-   width: 20%;
-   margin-bottom: 15px;
- }
-
-.grid-item--width2 { width: 40%; }
-
-.gutter-sizer { width: 4%; }
-*/
-
-.photoview-background {
-  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0.8)), url("http://localhost:5000/images/raw/bike-trip-sweden---italy-2018_42445058455_o.png"); //TODO: URL
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  height: 360px;
+  float: left;
+  border-radius: 5px;
 }
 
-.image-list-item-container {
-  border-radius: 10px;
-  border-style: hidden;
-//  border-width: 4px;
-//  border-top-left-radius: 500px;
-//  border-bottom-right-radius: 500px;
-//  border-color: #DDDDDD;
-}
+.grid-item--width2 { width:  40%; }
+.grid-item--width3 { width:  60%; }
 
-.mat-elevation-z5 {
-   border-radius: 10px;
-   position: relative;
-   z-index: 2;
+
+
+ .grid-item-image {
+   display: block;
+   max-width: 90%;
 }
