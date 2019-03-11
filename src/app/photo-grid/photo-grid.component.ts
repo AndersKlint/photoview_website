@@ -4,10 +4,7 @@ import { PhotoModalComponent } from '../photo-modal/photo-modal.component';
 import { ImageService } from '../image.service';
 import { ActivatedRoute, Router }  from '@angular/router';
 import { Subscription } from 'rxjs';
-
-import $ from 'jquery';
-import jQueryBridget from 'jquery-bridget';
-import Masonry from 'masonry-layout';
+import { NgxMasonryOptions } from 'ngx-masonry';
 
 @Component({
   selector: 'app-photo-grid',
@@ -22,6 +19,13 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   photoDialogRef: MatDialogRef<PhotoModalComponent>;
   routeQueryParams$: Subscription;
 
+  public masonryOptions: NgxMasonryOptions = {
+		transitionDuration: '0.2s',
+		gutter: 20,
+		resize: true,
+		initLayout: true
+  };
+
   constructor(private dialog: MatDialog, private imageService: ImageService, private route: ActivatedRoute, private router: Router) {
     this.routeQueryParams$ = route.queryParams.subscribe(params => {
       if (params['img']) {
@@ -30,23 +34,10 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
     });
   }
 
-
   ngOnInit() {
     this.imageService.getFilenames().subscribe(res => {
       this.image_info = res;
       this.sortedImages = this.getKeysSortedByValue(this.image_info);
-    });
-
-    jQueryBridget( 'masonry', Masonry, $ );
-    jQueryBridget( 'imagesLoaded', ImagesLoaded, $ );
-
-    var $grid = $('.grid') {
-      // init Masonry after all images have loaded
-      $grid.masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-      });
     });
   }
 
