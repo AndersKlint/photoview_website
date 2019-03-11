@@ -1,5 +1,5 @@
-<div class="photoview-background">
-  <ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s', gutter: 20, columnWidth: 120, itemSelector: '.masonry-item',
+<div> <!-- this div is important for making dynamic resizing work. idk why -->
+  <ngx-masonry [useImagesLoaded]="true" [options]="{ transitionDuration: '0.8s', gutter: 15, columnWidth: 120, itemSelector: '.masonry-item',
                       percentPosition: false, horizontalOrder: true, fitWidth: true, resize: true  }" >
     <ngxMasonryItem  class="masonry-item" *ngFor="let imageName of sortedImages" routerLinkActive="active"  routerLink="/photos" [queryParams]="{img: imageName}">
        <img class="mat-elevation-z5 image-list-item-container" src="{{this.imageService.getImage(imageName, true)}}" alt="No image">

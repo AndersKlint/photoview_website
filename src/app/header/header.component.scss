@@ -9,7 +9,20 @@
   padding-left: 25px;
 }
 
-.mat-elevation-z5 {
+.mat-elevation-z2 {
    position: relative;
    z-index: 2;
 }
+
+.toolbar-transparent {
+  background-color: rgba(163,224,255, 0);
+}
+
+/*
+.toolbar-background {
+  background-image: url('../../assets/toolbar-bkg.png');
+  background-attachment: fixed;
+  background-size: contain;
+  background-blend-mode: overlay;
+}
+*/
