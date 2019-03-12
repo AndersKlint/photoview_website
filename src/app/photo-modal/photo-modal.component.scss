@@ -4,13 +4,28 @@ img {
     max-width: 75vw;
   }
 
-.span-15-width {
-  display: inline-block;
-  width: 15px;
-  }
+.fav-button {
+  padding-top: 10px !important;
+}
+
+.fav-button-bkg {
+    border-radius: 15px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+    :host {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+       }
+
+       h1 {
+         margin: 0;
+         padding: 1em;
+       }
 
 
-:host {
-  display: block;
-  background: black;
-  }
+
+       .overlay-content {
+         padding: 1em;
+       }

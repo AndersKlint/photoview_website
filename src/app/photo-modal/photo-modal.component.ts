@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ImageService } from '../image.service';
+
+import { ImageModalOverlayRef } from '../image-modal-overlay-ref';
+import { IMAGE_MODAL_DIALOG_DATA } from '../image-modal-overlay.tokens';
 
 @Component({
   selector: 'app-photo-modal',
@@ -9,29 +11,26 @@ import { ImageService } from '../image.service';
 })
 export class PhotoModalComponent implements OnInit {
 
-  imageName: string;
   rating: string = '0';
 
   constructor(
     private imageService: ImageService,
-  //  private dialogRef: MatDialogRef<PhotoModalComponent>,
-  //  @Inject(MAT_DIALOG_DATA) private data
+    @Inject(IMAGE_MODAL_DIALOG_DATA) public image: any
   ) { }
 
   ngOnInit() {
-    this.imageName = 'falkenberg-sunset-cloud_24560283057_o.png';
     this.getRating();
   }
 
   getRating() {
-    this.imageService.getImageRating(this.imageName).subscribe(res => {
+    this.imageService.getImageRating(this.image).subscribe(res => {
           this.rating = res;
         }
       );
   }
 
   onLike() {
-    this.imageService.likeImage(this.imageName).subscribe(res => {
+    this.imageService.likeImage(this.image).subscribe(res => {
           this.rating = res;
         }
       );

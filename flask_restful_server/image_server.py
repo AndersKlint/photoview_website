@@ -106,4 +106,4 @@ if __name__ == '__main__':
     # ORDER IMPORTANT
     image_info = read_image_info(image_directory)
     thumbnails = read_images([small_thumbnail_directory, big_thumbnail_directory])
-    app.run(host= '192.168.1.4', debug=False)
+    app.run(debug=False)

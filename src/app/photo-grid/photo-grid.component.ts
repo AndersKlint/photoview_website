@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { NgxMasonryOptions } from 'ngx-masonry';
 
 import { ImageModalOverlayService } from '../image-modal-overlay.service';
+import { ImageModalOverlayRef } from '../image-modal-overlay-ref';
 
 @Component({
   selector: 'app-photo-grid',
@@ -60,7 +61,9 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   }
 
   openPhotoModal(imageName) {
-    this.imageModal.open();
+    let dialogRef: ImageModalOverlayRef = this.imageModal.open({
+      image: imageName
+    });
     /*
     this.photoDialogRef = this.dialog.open(PhotoModalComponent, {
       maxHeight: '95vh',

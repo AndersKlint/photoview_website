@@ -1,7 +1,9 @@
 
-<img src="{{this.imageService.getImage(imageName)}}">
+<img src="{{this.imageService.getImage(image)}}">
 <!--  <button mat-button [mat-dialog-close]="senddata">Close</button> -->
-  <button mat-icon-button color="warn" (click)="onLike()">
-    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+<div class="fav-button">
+  <button mat-flat-button color="primary" class="fav-button-bkg" (click)="onLike()">
+    <mat-icon aria-label="Example icon-button with a heart icon" color="warn">favorite</mat-icon>
     {{rating}}
   </button>
+</div>

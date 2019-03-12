@@ -11,7 +11,7 @@ export class ImageService {
   thumbnail_extension: string = '.small.jpg';
   big_extension: string = '.big.jpg';
 
-  api_url: string = 'http://192.168.1.4:5000/';
+  api_url: string = 'http://localhost:5000/';
   images_url: string = this.api_url + 'images/'
   filenames_url: string = this.api_url + 'images/filenames.json'
   ratings_url: string = this.api_url + 'ratings/'
