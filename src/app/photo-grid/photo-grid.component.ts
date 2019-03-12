@@ -17,7 +17,7 @@ import { ImageModalOverlayRef } from '../image-modal-overlay-ref';
 // Child routing tutorial (for modal): https://medium.com/ngconf/routing-to-angular-material-dialogs-c3fb7231c177
 export class PhotoGridComponent implements OnInit, OnDestroy {
   image_info: {} = {};
-  sortedImages: string[] = [];
+  sortedImages: string[];
   routeQueryParams$: Subscription;
 
   public masonryOptions: NgxMasonryOptions = {
