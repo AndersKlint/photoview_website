@@ -8,3 +8,9 @@ img {
   display: inline-block;
   width: 15px;
   }
+
+
+:host {
+  display: block;
+  background: black;
+  }

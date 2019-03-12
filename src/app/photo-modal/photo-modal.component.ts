@@ -14,12 +14,12 @@ export class PhotoModalComponent implements OnInit {
 
   constructor(
     private imageService: ImageService,
-    private dialogRef: MatDialogRef<PhotoModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private data
+  //  private dialogRef: MatDialogRef<PhotoModalComponent>,
+  //  @Inject(MAT_DIALOG_DATA) private data
   ) { }
 
   ngOnInit() {
-    this.imageName = this.data.imageName;
+    this.imageName = 'falkenberg-sunset-cloud_24560283057_o.png';
     this.getRating();
   }
 

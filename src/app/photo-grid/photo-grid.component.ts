@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { PhotoModalComponent } from '../photo-modal/photo-modal.component';
 import { ImageService } from '../image.service';
 import { ActivatedRoute, Router }  from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NgxMasonryOptions } from 'ngx-masonry';
+
+import { ImageModalOverlayService } from '../image-modal-overlay.service';
 
 @Component({
   selector: 'app-photo-grid',
@@ -16,7 +17,6 @@ import { NgxMasonryOptions } from 'ngx-masonry';
 export class PhotoGridComponent implements OnInit, OnDestroy {
   image_info: {} = {};
   sortedImages: string[] = [];
-  photoDialogRef: MatDialogRef<PhotoModalComponent>;
   routeQueryParams$: Subscription;
 
   public masonryOptions: NgxMasonryOptions = {
@@ -26,7 +26,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
 		initLayout: true
   };
 
-  constructor(private dialog: MatDialog, private imageService: ImageService, private route: ActivatedRoute, private router: Router) {
+  constructor(private imageModal: ImageModalOverlayService, private imageService: ImageService, private route: ActivatedRoute, private router: Router) {
     this.routeQueryParams$ = route.queryParams.subscribe(params => {
       if (params['img']) {
         this.openPhotoModal(params['img']);
@@ -60,6 +60,8 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   }
 
   openPhotoModal(imageName) {
+    this.imageModal.open();
+    /*
     this.photoDialogRef = this.dialog.open(PhotoModalComponent, {
       maxHeight: '95vh',
       panelClass: 'my-dialog',
@@ -71,6 +73,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
     this.photoDialogRef .afterClosed().subscribe(result => {
       this.router.navigate(['/photos'], { relativeTo: this.route });
     });
+    */
   }
 
 }
