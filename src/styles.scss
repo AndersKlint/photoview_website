@@ -1,8 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/theming';
 
-$mdc-theme-primary: #1565c0; // primary color example
-$mdc-theme-secondary: #388e3c; // secondary color example
+@include mat-core();
+
+$photo-app-primary: mat-palette($mat-grey, 800, 900, 600);
+$photo-app-accent:  mat-palette($mat-green, 200, 100, 400);
+$photo-app-warn:    mat-palette($mat-red);
+$photo-app-theme: mat-light-theme($photo-app-primary, $photo-app-accent, $photo-app-warn);
+
+@include angular-material-theme($photo-app-theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-dialog .mat-dialog-container {
+  padding: 10;
+  background-color: mat-color($photo-app-primary);
+}

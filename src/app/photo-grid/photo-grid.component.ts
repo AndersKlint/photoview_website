@@ -62,6 +62,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   openPhotoModal(imageName) {
     this.photoDialogRef = this.dialog.open(PhotoModalComponent, {
       maxHeight: '95vh',
+      panelClass: 'my-dialog',
       data: {
         imageName: imageName
       }
