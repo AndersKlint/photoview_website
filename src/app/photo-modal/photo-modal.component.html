@@ -2,8 +2,16 @@
 <img src="{{this.imageService.getImage(image)}}">
 <!--  <button mat-button [mat-dialog-close]="senddata">Close</button> -->
 <div class="fav-button">
-  <button mat-flat-button color="primary" class="fav-button-bkg" (click)="onLike()">
+  <div class="fav-button-bkg">
+  <button mat-stroked-button color="primary" (click)="onLike()">
     <mat-icon aria-label="Example icon-button with a heart icon" color="warn">favorite</mat-icon>
-    {{rating}}
+    <span class="likes-text">{{rating}}</span>
   </button>
+  <button mat-stroked-button color="primary" >
+    <mat-icon aria-label="fullscreen button" class="white-icon">fullscreen</mat-icon>
+  </button>
+  <button mat-stroked-button color="primary" >
+    <mat-icon aria-label="fullscreen button" class="white-icon">close</mat-icon>
+  </button>
+</div>
 </div>

@@ -38,6 +38,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.imageService.getFilenames().subscribe(res => {
       this.image_info = res;
+      console.log(res);
       this.sortedImages = this.getKeysSortedByValue(this.image_info);
     });
   }
