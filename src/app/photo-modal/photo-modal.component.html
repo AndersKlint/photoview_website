@@ -1,17 +1,23 @@
 
-<img src="{{this.imageService.getImage(image)}}">
+<img [style.max-height]="imageMaxHeight" [style.max-width]="imageMaxWidth" src="{{this.imageService.getImage(image)}}">
 <!--  <button mat-button [mat-dialog-close]="senddata">Close</button> -->
-<div class="fav-button">
+<div class="button-bar" [style.margin-top]="buttonBarTopMargin" [style.opacity]="buttonBarOpacity">
   <div class="fav-button-bkg">
   <button mat-stroked-button color="primary" (click)="onLike()">
     <mat-icon aria-label="Example icon-button with a heart icon" color="warn">favorite</mat-icon>
     <span class="likes-text">{{rating}}</span>
   </button>
-  <button mat-stroked-button color="primary" >
-    <mat-icon aria-label="fullscreen button" class="white-icon">fullscreen</mat-icon>
+  <button mat-stroked-button color="primary" (click)="onToggleFullscreen()">
+    <div *ngIf="isFullscreen; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <mat-icon aria-label="fullscreen button exit" class="white-icon">fullscreen_exit</mat-icon>
+    </ng-template>
+    <ng-template #elseBlock>
+      <mat-icon aria-label="fullscreen button" class="white-icon">fullscreen</mat-icon>
+    </ng-template>
   </button>
-  <button mat-stroked-button color="primary" >
-    <mat-icon aria-label="fullscreen button" class="white-icon">close</mat-icon>
+  <button mat-stroked-button color="primary" (click)="onClose()">
+    <mat-icon aria-label="close button" class="white-icon">close</mat-icon>
   </button>
 </div>
 </div>

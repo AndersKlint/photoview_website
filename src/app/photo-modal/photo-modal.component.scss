@@ -1,37 +1,34 @@
 
-img {
-    max-height: 75vh;
-    max-width: 75vw;
-  }
+.container {
 
-.fav-button {
-  padding-top: 10px !important;
 }
+
+img:hover ~ .button-bar{
+  opacity: 1.0 !important;
+}
+
+img:hover, img:focus, img:active {
+  outline: none !important; // removes ugly focus dotted border
+}
+
+.button-bar:hover {
+  opacity: 1.0 !important;
+}
+
 
 .fav-button-bkg {
     border-radius: 15px !important;
     background: rgba(0, 0, 0, 0.5) !important;
 }
 
-    :host {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-       }
+:host {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
 
-       h1 {
-         margin: 0;
-         padding: 1em;
-       }
-
-
-
-       .overlay-content {
-         padding: 1em;
-       }
-
-       .white-icon {
-         color: white;
+ .white-icon {
+   color: white;
 }
 
 .likes-text {
