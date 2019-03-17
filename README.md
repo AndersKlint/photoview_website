@@ -5,7 +5,7 @@ The frontend displays the pictures in a masonry image grid (photostream), with c
 
 The backend API reads pictures from a specified directory and automatically\* makes smaller sized images (thumbnails) to efficiently send to the frontend.
 
-\* Not automatically yet, you will have to run the make_thumbnails.py script to generate new thumbnails upons changes in the directory.
+*\* Not automatically yet, you will have to run the make_thumbnails.py script to generate new thumbnails upons changes in the directory.*
 
 # Screenshots
 
