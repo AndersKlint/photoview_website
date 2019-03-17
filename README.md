@@ -9,14 +9,13 @@ The backend API reads pictures from a specified directory and automatically\* ma
 
 # Screenshots
 
+## Photostream 
 ![photostream](https://raw.githubusercontent.com/andersklint/photoview_website/master/screenshots/photostream_2019-03-17.jpg)
+Made using the [ngx-masnonry](https://www.npmjs.com/package/ngx-masonry) packet which ports [Desandro Masonry](https://github.com/desandro/masonry) to Angular 6+. 
 
-Photostream - Made using the [ngx-masnonry](https://www.npmjs.com/package/ngx-masonry) packet which ports [Desandro Masonry](https://github.com/desandro/masonry) to Angular 6+. 
-
-
+## Photo modal 
 ![photo modal](https://raw.githubusercontent.com/andersklint/photoview_website/master/screenshots/photo_modal_2019-03-17.jpg)
-
-Photo modal - Appears upon clicking an image. Made using Overlay from CLI and techniques from [this tutorial on blog.thoughtram.io.](https://blog.thoughtram.io/angular/2017/11/20/custom-overlays-with-angulars-cdk.html)
+Appears upon clicking an image. Made using Overlay from CLI and techniques from [this tutorial on blog.thoughtram.io.](https://blog.thoughtram.io/angular/2017/11/20/custom-overlays-with-angulars-cdk.html)
 
 # Angular
 
