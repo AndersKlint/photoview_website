@@ -2,7 +2,7 @@ import {  Injectable, Inject, OnInit, Injector, ComponentRef  } from '@angular/c
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 
-import { PhotoModalComponent } from './photo-modal/photo-modal.component';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 import { ImageModalOverlayRef } from './image-modal-overlay-ref';
 import { IMAGE_MODAL_DIALOG_DATA } from './image-modal-overlay.tokens';
 import { Router, ActivatedRoute }  from '@angular/router';
@@ -37,7 +37,7 @@ export class ImageModalOverlayService {
 
     // OverlayRef is a PortalHost.
     // A protalhost is kinda a placeholder for a template or component.
-    const imageModalPortal = new ComponentPortal(PhotoModalComponent);
+    const imageModalPortal = new ComponentPortal(ImageModalComponent);
     const overlayComponent = this.attachDialogContainer(overlayRef, dialogConfig, dialogRef);
 
     overlayRef.backdropClick().subscribe(_ => dialogRef.close());
@@ -69,8 +69,8 @@ export class ImageModalOverlayService {
 
   private attachDialogContainer(overlayRef: OverlayRef, config: ImageModalOverlayConfig, dialogRef: ImageModalOverlayRef) {
     const injector = this.createInjector(config, dialogRef);
-    const containerPortal = new ComponentPortal(PhotoModalComponent, null, injector);
-    const containerRef: ComponentRef<PhotoModalComponent> = overlayRef.attach(containerPortal);
+    const containerPortal = new ComponentPortal(ImageModalComponent, null, injector);
+    const containerRef: ComponentRef<ImageModalComponent> = overlayRef.attach(containerPortal);
     return containerRef.instance;
   }
 

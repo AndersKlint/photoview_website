@@ -13,7 +13,7 @@ import { PhotoGridComponent } from './photo-grid/photo-grid.component';
 import { AboutViewComponent } from './about-view/about-view.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { PhotoModalComponent } from './photo-modal/photo-modal.component';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 import { ImageModalOverlayService } from './image-modal-overlay.service';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ImageModalOverlayService } from './image-modal-overlay.service';
     FooterComponent,
     PhotoGridComponent,
     AboutViewComponent,
-    PhotoModalComponent
+    ImageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +36,6 @@ import { ImageModalOverlayService } from './image-modal-overlay.service';
   ],
   providers: [ImageModalOverlayService],
   bootstrap: [AppComponent],
-  entryComponents: [PhotoModalComponent]
+  entryComponents: [ImageModalComponent]
 })
 export class AppModule { }

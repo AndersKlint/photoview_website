@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {PhotoGridComponent} from './photo-grid/photo-grid.component';
 import {AboutViewComponent} from './about-view/about-view.component';
-import {PhotoModalComponent} from './photo-modal/photo-modal.component';
+import {ImageModalComponent} from './image-modal/image-modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/photos', pathMatch: 'full' },

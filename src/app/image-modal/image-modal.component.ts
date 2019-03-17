@@ -5,11 +5,11 @@ import { ImageModalOverlayRef } from '../image-modal-overlay-ref';
 import { IMAGE_MODAL_DIALOG_DATA } from '../image-modal-overlay.tokens';
 
 @Component({
-  selector: 'app-photo-modal',
-  templateUrl: './photo-modal.component.html',
-  styleUrls: ['./photo-modal.component.scss']
+  selector: 'app-image-modal',
+  templateUrl: './image-modal.component.html',
+  styleUrls: ['./image-modal.component.scss']
 })
-export class PhotoModalComponent implements OnInit {
+export class ImageModalComponent implements OnInit {
 
   rating: string = '0';
   imageMaxHeight: string = '75vh';
