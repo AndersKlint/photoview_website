@@ -1,0 +1,11 @@
+<mat-grid-list cols="8" rowHeight="1:1" gutterSize="20px">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    <div>
+      <img class="album-art" src={{tile.image}} alt="Photo of a Shiba Inu">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

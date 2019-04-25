@@ -15,6 +15,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { ImageModalOverlayService } from './image-modal-overlay.service';
+import { MusicComponent } from './music/music.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ImageModalOverlayService } from './image-modal-overlay.service';
     FooterComponent,
     PhotoGridComponent,
     AboutViewComponent,
-    ImageModalComponent
+    ImageModalComponent,
+    MusicComponent
   ],
   imports: [
     BrowserModule,
