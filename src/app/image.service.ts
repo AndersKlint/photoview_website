@@ -33,9 +33,9 @@ export class ImageService {
     return this.http.get(this.ratings_url + imageName);
   }
 
-  likeImage(imageName: string): Observable<any> {
+  likeImage(imageName: string, nbrOfLikes = 1): Observable<any> {
     const params = new HttpParams()
-      .set('data', "1");
+      .set('data', nbrOfLikes.toString());
     return this.http.put(this.ratings_url + imageName, params)
       .pipe(
         tap( // Log the result or error

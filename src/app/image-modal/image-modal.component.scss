@@ -21,6 +21,10 @@ img:hover, img:focus, img:active {
     background: rgba(0, 0, 0, 0.5) !important;
 }
 
+.mat-heart-button {
+  color: #fff;
+}
+
 :host {
      display: flex;
      flex-direction: column;

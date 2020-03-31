@@ -4,7 +4,7 @@
 <div class="button-bar" [style.margin-top]="buttonBarTopMargin" [style.opacity]="buttonBarOpacity">
   <div class="fav-button-bkg">
   <button mat-stroked-button color="primary" (click)="onLike()">
-    <mat-icon aria-label="Example icon-button with a heart icon" color="warn">favorite</mat-icon>
+    <mat-icon aria-label="Example icon-button with a heart icon" [style.color]="heartColor">favorite</mat-icon>
     <span class="likes-text">{{rating}}</span>
   </button>
   <button mat-stroked-button color="primary" (click)="onToggleFullscreen()">
